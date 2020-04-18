@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
-import auth from './../auth/auth-helper'
-import { CardHeader } from 'material-ui/Card'
-import TextField from 'material-ui/TextField'
-import Avatar from 'material-ui/Avatar'
-import Icon from 'material-ui/Icon'
-import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
-import {comment, uncomment} from './api-post.js'
-import {Link} from 'react-router-dom'
+import React, {Component} from 'react';
+import auth from './../auth/auth-helper';
+import { CardHeader } from 'material-ui/Card';
+import TextField from 'material-ui/TextField';
+import Avatar from 'material-ui/Avatar';
+import Icon from 'material-ui/Icon';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import {comment, uncomment} from './api-post.js';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
   cardHeader: {
@@ -39,7 +39,7 @@ const styles = theme => ({
 })
 
 class Comments extends Component {
-  state = {text: ''}
+  state = {text: ''};
   handleChange = name => event => {
     this.setState({[name]: event.target.value})
   }
@@ -86,7 +86,8 @@ class Comments extends Component {
           <span className={classes.commentDate}>
             {(new Date(item.created)).toDateString()} |
             {auth.isAuthenticated().user._id === item.postedBy._id &&
-              <Icon onClick={this.deleteComment(item)} className={classes.commentDelete}>delete</Icon> }
+              <Icon onClick={this.deleteComment(item)} 
+                className={classes.commentDelete}>delete</Icon> }
           </span>
         </p>
       )
@@ -129,4 +130,4 @@ Comments.propTypes = {
   updateComments: PropTypes.func.isRequired
 }
 
-export default withStyles(styles)(Comments)
+export default withStyles(styles)(Comments);
