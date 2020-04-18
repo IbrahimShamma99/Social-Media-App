@@ -8,6 +8,7 @@ import EditProfile from './user/EditProfile'
 import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
+import RouteNames from './RouteNames';
 
 class MainRouter extends Component {
   // Removes the server-side injected CSS when React component mounts
@@ -22,12 +23,12 @@ class MainRouter extends Component {
     return (<div>
       <Menu/>
       <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/users" component={Users}/>
-        <Route path="/signup" component={Signup}/>
-        <Route path="/signin" component={Signin}/>
-        <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
-        <Route path="/user/:userId" component={Profile}/>
+        <Route exact path={RouteNames.root} component={Home}/>
+        <Route path={RouteNames.users} component={Users}/>
+        <Route path={RouteNames.signup} component={Signup}/>
+        <Route path={RouteNames.signin} component={Signin}/>
+        <PrivateRoute path={RouteNames.Editprofile} component={EditProfile}/>
+        <Route path={RouteNames.user} component={Profile}/>
       </Switch>
     </div>)
   }
