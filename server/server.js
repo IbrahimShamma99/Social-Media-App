@@ -1,10 +1,15 @@
-const config = require('./../config/config');
-const app = require('./express');
-const mongoose = require('mongoose');
+import config from './../config/config'
+import app from './express'
+import mongoose from 'mongoose'
 
 // Connection URL
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri)
+console.log("MONGO URI=",config.mongoUri)
+mongoose.connect(config.mongoUri,{
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`)
 })

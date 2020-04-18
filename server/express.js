@@ -1,14 +1,14 @@
-import express from 'express'
-import path from 'path'
-import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
-import compress from 'compression'
-import cors from 'cors'
-import helmet from 'helmet'
-import Template from './../template'
-import userRoutes from './routes/user.routes'
-import authRoutes from './routes/auth.routes'
-import postRoutes from './routes/post.routes'
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import compress from 'compression';
+import cors from 'cors';
+import helmet from 'helmet';
+import Template from './../template';
+import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
+import postRoutes from './routes/post.routes';
 
 // modules for server side rendering
 import React from 'react'
