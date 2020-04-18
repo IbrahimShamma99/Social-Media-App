@@ -4,9 +4,7 @@ import RouteNames from '../RouteNames';
 
 const router = express.Router()
 
-router.route(RouteNames.login)
-  .post(authCtrl.signin)
-router.route(RouteNames.logout)
-  .get(authCtrl.signout)
+router.post(RouteNames.login,authCtrl.signin)
+router.get(RouteNames.logout,authCtrl.signout)
 
 export default router;
