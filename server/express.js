@@ -10,7 +10,7 @@ import RouteNames from './RouteNames';
 
 //API
 import userRoutes from './User/';
-import authRoutes from './routes/auth.routes';
+import authRoutes from './Auth/auth.routes';
 import postRoutes from './Post/post.routes';
 
 // modules for server side rendering

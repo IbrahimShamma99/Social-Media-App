@@ -1,2 +1,2 @@
-import userRoutes from './user.controller';
+import userRoutes from './user.routes';
 export default userRoutes;
