@@ -68,7 +68,7 @@ app.get('*', (req, res) => {
        dark: '#c77800',
        contrastText: '#000',
      },
-       openTitle: teal['700'],
+       openTitle: teal['900'],
        protectedTitle: orange['700'],
        type: 'light'
      }

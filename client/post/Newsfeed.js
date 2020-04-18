@@ -18,7 +18,12 @@ const styles = theme => ({
   title: {
     padding:`${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme.spacing.unit * 2}px`,
     color: theme.palette.openTitle,
-    fontSize: '1em'
+    fontSize: '20px',
+    fontWeight: 600,
+    fontFamily: 'sans serif'
+  },
+  text:{
+
   },
   media: {
     minHeight: 330
@@ -71,7 +76,8 @@ class Newsfeed extends Component {
       </Card>
     )
   }
-}
+};
+
 Newsfeed.propTypes = {
   classes: PropTypes.object.isRequired
 };
