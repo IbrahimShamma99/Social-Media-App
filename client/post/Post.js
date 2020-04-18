@@ -1,19 +1,19 @@
-import React, {Component} from 'react'
-import auth from './../auth/auth-helper'
-import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import Avatar from 'material-ui/Avatar'
-import IconButton from 'material-ui/IconButton'
-import DeleteIcon from 'material-ui-icons/Delete'
-import FavoriteIcon from 'material-ui-icons/Favorite'
-import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder'
-import CommentIcon from 'material-ui-icons/Comment'
-import Divider from 'material-ui/Divider'
-import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
-import {Link} from 'react-router-dom'
-import {remove, like, unlike} from './api-post.js'
-import Comments from './Comments'
+import React, {Component} from 'react';
+import auth from './../auth/auth-helper';
+import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import Avatar from 'material-ui/Avatar';
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
+import FavoriteIcon from 'material-ui-icons/Favorite';
+import FavoriteBorderIcon from 'material-ui-icons/FavoriteBorder';
+import CommentIcon from 'material-ui-icons/Comment';
+import Divider from 'material-ui/Divider';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import {Link} from 'react-router-dom';
+import {remove, like, unlike} from './api-post.js';
+import Comments from './Comments';
 
 const styles = theme => ({
   card: {
@@ -154,4 +154,4 @@ Post.propTypes = {
   onRemove: PropTypes.func.isRequired
 }
 
-export default withStyles(styles)(Post)
+export default withStyles(styles)(Post);
