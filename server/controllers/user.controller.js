@@ -6,6 +6,8 @@ import fs from 'fs'
 import profileImage from './../../client/assets/images/profile-pic.png'
 
 const create = (req, res, next) => {
+  if (!req.body){return res.status(422).send({success:false,
+    message:"error while providing user info"})}
   const user = new User(req.body)
   user.save((err, result) => {
     if (err) {
@@ -13,15 +15,12 @@ const create = (req, res, next) => {
         error: errorHandler.getErrorMessage(err)
       })
     }
-    res.status(200).json({
+    return res.status(200).json({
       message: "Successfully signed up!"
-    })
+    });
   })
-}
+};
 
-/**
- * Load user and append to req.
- */
 const userByID = (req, res, next, id) => {
   User.findById(id)
     .populate('following', '_id name')
@@ -49,10 +48,10 @@ const list = (req, res) => {
       })
     }
     res.json(users)
-  }).select('name email updated created')
-}
+  }).select('name email updated created');
+};
 
-const update = (req, res, next) => {
+const update = (req, res) => {
   let form = new formidable.IncomingForm()
   form.keepExtensions = true
   form.parse(req, (err, fields, files) => {
@@ -97,6 +96,7 @@ const remove = (req, res, next) => {
 
 const photo = (req, res, next) => {
   if(req.profile.photo.data){
+    console.log("Content-Type=", req.profile.photo.contentType)
     res.set("Content-Type", req.profile.photo.contentType)
     return res.send(req.profile.photo.data)
   }
@@ -173,18 +173,7 @@ const findPeople = (req, res) => {
   }).select('name')
 }
 
-export default {
-  create,
-  userByID,
-  read,
-  list,
-  remove,
-  update,
-  photo,
-  defaultPhoto,
-  addFollowing,
-  addFollower,
-  removeFollowing,
-  removeFollower,
-  findPeople
-}
+const usercontroler ={create, userByID, read,list,remove,update, photo, defaultPhoto,
+  addFollowing, addFollower, removeFollowing, removeFollower, findPeople};
+
+export default usercontroler;
