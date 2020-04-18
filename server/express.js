@@ -7,10 +7,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import Template from './../template';
 import RouteNames from './RouteNames';
+
 //API
-import userRoutes from './routes/user.routes';
+import userRoutes from './User/';
 import authRoutes from './routes/auth.routes';
-import postRoutes from './routes/post.routes';
+import postRoutes from './Post/post.routes';
 
 // modules for server side rendering
 import React from 'react'

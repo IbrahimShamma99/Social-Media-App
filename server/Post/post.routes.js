@@ -1,7 +1,7 @@
 import express from 'express';
-import userCtrl from '../controllers/user.controller';
+import userCtrl from '../User/user.controller';
 import authCtrl from '../controllers/auth.controller';
-import postCtrl from '../controllers/post.controller';
+import postCtrl from './post.controller';
 import RouteNames from '../RouteNames';
 
 const router = express.Router();

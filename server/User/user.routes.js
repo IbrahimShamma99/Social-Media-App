@@ -1,5 +1,5 @@
 import express from 'express';
-import userCtrl from '../controllers/user.controller';
+import userCtrl from './user.controller';
 import authCtrl from '../controllers/auth.controller';
 import RouteNames from '../RouteNames';
 
