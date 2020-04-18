@@ -10,8 +10,8 @@ import RouteNames from './RouteNames';
 
 //API
 import userRoutes from './User/';
-import authRoutes from './Auth/auth.routes';
-import postRoutes from './Post/post.routes';
+import authRoutes from './Auth/';
+import postRoutes from './Post/';
 
 // modules for server side rendering
 import React from 'react'
@@ -44,7 +44,7 @@ app.use(compress());
 app.use(helmet());
 app.use(cors());
 
-app.use(RouteNames.dist, express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
+// app.use(RouteNames.dist, express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 // mount routes
 //FIXME 
@@ -58,7 +58,7 @@ app.get('*', (req, res) => {
      palette: {
        primary: {
        light: '#52c7b8',
-       main: '#009688',
+       main: '#111111',
        dark: '#00675b',
        contrastText: '#fff',
      },
