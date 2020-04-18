@@ -6,6 +6,7 @@ import {teal, orange} from 'material-ui/colors';
 import { hot } from 'react-hot-loader';
 
 // Create a theme instance.
+//TODO switching between Dark and before fixing the styling
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -24,14 +25,14 @@ const theme = createMuiTheme({
     protectedTitle: orange['700'],
     type: 'light'
   }
-})
+});
 
-const App = () => (
+const App = (props) => (
   <BrowserRouter>
     <MuiThemeProvider theme={theme}>
       <MainRouter/>
     </MuiThemeProvider>
   </BrowserRouter>
-)
+);
 
-export default hot(module)(App)
+export default hot(module)(App);

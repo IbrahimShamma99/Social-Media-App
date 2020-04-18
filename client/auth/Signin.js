@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import Card, {CardActions, CardContent} from 'material-ui/Card'
-import Button from 'material-ui/Button'
+import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
 import Typography from 'material-ui/Typography'
 import Icon from 'material-ui/Icon'
@@ -104,4 +104,4 @@ Signin.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Signin)
+export default withStyles(styles)(Signin);

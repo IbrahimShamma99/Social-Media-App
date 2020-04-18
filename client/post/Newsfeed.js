@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
-import Card from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import Divider from 'material-ui/Divider'
-import auth from './../auth/auth-helper'
-import PostList from './PostList'
-import {listNewsFeed} from './api-post.js'
-import NewPost from './NewPost'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import Card from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
+import auth from './../auth/auth-helper';
+import PostList from './PostList';
+import {listNewsFeed} from './api-post.js';
+import NewPost from './NewPost';
 
 const styles = theme => ({
   card: {
@@ -23,7 +23,8 @@ const styles = theme => ({
   media: {
     minHeight: 330
   }
-})
+});
+
 class Newsfeed extends Component {
   state = {
       posts: []
@@ -73,6 +74,6 @@ class Newsfeed extends Component {
 }
 Newsfeed.propTypes = {
   classes: PropTypes.object.isRequired
-}
+};
 
-export default withStyles(styles)(Newsfeed)
+export default withStyles(styles)(Newsfeed);
