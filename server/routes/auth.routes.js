@@ -1,11 +1,12 @@
-import express from 'express'
-import authCtrl from '../controllers/auth.controller'
+import express from 'express';
+import authCtrl from '../controllers/auth.controller';
+import RouteNames from '../RouteNames';
 
 const router = express.Router()
 
-router.route('/auth/signin')
+router.route(RouteNames.login)
   .post(authCtrl.signin)
-router.route('/auth/signout')
+router.route(RouteNames.logout)
   .get(authCtrl.signout)
 
-export default router
+export default router;

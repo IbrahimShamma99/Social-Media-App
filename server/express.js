@@ -6,47 +6,50 @@ import compress from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
 import Template from './../template';
+import RouteNames from './RouteNames';
+//API
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 import postRoutes from './routes/post.routes';
 
 // modules for server side rendering
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import MainRouter from './../client/MainRouter'
-import StaticRouter from 'react-router-dom/StaticRouter'
+import ReactDOMServer from 'react-dom/server';
+import MainRouter from './../client/MainRouter';
+import StaticRouter from 'react-router-dom/StaticRouter';
 
-import { SheetsRegistry } from 'react-jss/lib/jss'
-import JssProvider from 'react-jss/lib/JssProvider'
-import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'material-ui/styles'
-import {teal, orange} from 'material-ui/colors'
-//end
+import { SheetsRegistry } from 'react-jss/lib/jss';
+import JssProvider from 'react-jss/lib/JssProvider';
+import { MuiThemeProvider, createMuiTheme, 
+  createGenerateClassName } from 'material-ui/styles';
+import {teal, orange} from 'material-ui/colors';
+
+//comment out before building for production bundling using webpack aka devBundle
+import devBundle from './devBundle';
+
+const CURRENT_WORKING_DIR = process.cwd();
+
+console.log("\u{1F913}\u{1F913}\u{1F913}","CWD=",CURRENT_WORKING_DIR);
+const app = express();
 
 //comment out before building for production
-import devBundle from './devBundle'
-
-const CURRENT_WORKING_DIR = process.cwd()
-const app = express()
-
-//comment out before building for production
-devBundle.compile(app)
+devBundle.compile(app);
 
 // parse body params and attache them to req.body
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
-app.use(compress())
-// secure apps by setting various HTTP headers
-app.use(helmet())
-// enable CORS - Cross Origin Resource Sharing
-app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(compress());
+app.use(helmet());
+app.use(cors());
 
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+app.use(RouteNames.dist, express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 // mount routes
-app.use('/', userRoutes)
-app.use('/', authRoutes)
-app.use('/', postRoutes)
+//FIXME 
+app.use(RouteNames.root, userRoutes);
+app.use(RouteNames.root, authRoutes);
+app.use(RouteNames.root, postRoutes);
 
 app.get('*', (req, res) => {
    const sheetsRegistry = new SheetsRegistry()
@@ -88,13 +91,12 @@ app.get('*', (req, res) => {
       markup: markup,
       css: css
     }))
-})
+});
 
 // Catch unauthorised errors
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401).json({"error" : err.name + ": " + err.message})
   }
-})
-
+});
 export default app

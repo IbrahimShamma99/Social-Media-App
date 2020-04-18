@@ -1,27 +1,28 @@
 import express from 'express';
 import userCtrl from '../controllers/user.controller';
 import authCtrl from '../controllers/auth.controller';
+import RouteNames from '../RouteNames';
 
 const router = express.Router();
 
-router.route('/api/users')
+router.route(RouteNames.users)
   .get(userCtrl.list)
   .post(userCtrl.create);
 
-router.route('/api/users/photo/:userId')
+router.route(RouteNames.userphoto)
   .get(userCtrl.photo, userCtrl.defaultPhoto);
-router.route('/api/users/defaultphoto')
+router.route(RouteNames.defaultphoto)
   .get(userCtrl.defaultPhoto);
 
-router.route('/api/users/follow')
+router.route(RouteNames.follow)
     .put(authCtrl.requireSignin, userCtrl.addFollowing, userCtrl.addFollower);
-router.route('/api/users/unfollow')
+router.route(RouteNames.unfollow)
     .put(authCtrl.requireSignin, userCtrl.removeFollowing, userCtrl.removeFollower);
 
-router.route('/api/users/findpeople/:userId')
+router.route(RouteNames.finduser)
    .get(authCtrl.requireSignin, userCtrl.findPeople);
 
-router.route('/api/users/:userId')
+router.route(RouteNames.user)
   .get(authCtrl.requireSignin, userCtrl.read)
   .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
   .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove);
