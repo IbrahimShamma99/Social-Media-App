@@ -10,7 +10,6 @@ import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
 import RouteNames from './RouteNames';
 
-
 const Routes = (props) => (
     <div>
       <Menu/>

@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
-import Card, {CardContent, CardMedia} from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import seashellImg from './../assets/images/seashell.jpg'
-import Grid from 'material-ui/Grid'
-import auth from './../auth/auth-helper'
-import FindPeople from './../user/FindPeople'
-import Newsfeed from './../post/Newsfeed'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import Card, {CardContent, CardMedia} from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import seashellImg from './../assets/images/sm.png';
+import Grid from 'material-ui/Grid';
+import auth from './../auth/auth-helper';
+import FindPeople from './../user/FindPeople';
+import Newsfeed from './../post/Newsfeed';
 
 const styles = theme => ({
   root: {
@@ -15,7 +15,6 @@ const styles = theme => ({
     margin: 30,
   },
   card: {
-    maxWidth: 600,
     margin: 'auto',
     marginTop: theme.spacing.unit * 5
   },
@@ -24,7 +23,7 @@ const styles = theme => ({
     color: theme.palette.text.secondary
   },
   media: {
-    minHeight: 330
+    width:"100%",    
   }
 })
 
@@ -53,15 +52,7 @@ class Home extends Component {
           <Grid container spacing={24}>
             <Grid item xs={12}>
               <Card className={classes.card}>
-                <Typography type="headline" component="h2" className={classes.title}>
-                  Home Page
-                </Typography>
-                <CardMedia className={classes.media} image={seashellImg} title="Unicorn Shells"/>
-                <CardContent>
-                  <Typography type="body1" component="p">
-                    Welcome to the Social Media App home page. 
-                  </Typography>
-                </CardContent>
+                <img className={classes.media} src={seashellImg} title="Unicorn Shells"/>
               </Card>
             </Grid>
           </Grid>
