@@ -23,7 +23,7 @@ const styles = theme => ({
     color: theme.palette.text.secondary
   },
   media: {
-    width:"100%",    
+    width:"100%"    
   }
 })
 
