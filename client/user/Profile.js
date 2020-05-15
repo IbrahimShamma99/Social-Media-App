@@ -19,7 +19,7 @@ import {listByUser} from './../post/api-post.js'
 
 const styles = theme => ({
   root: theme.mixins.gutters({
-    maxWidth: 600,
+    maxWidth: 800,
     margin: 'auto',
     padding: theme.spacing.unit * 3,
     marginTop: theme.spacing.unit * 5
@@ -120,15 +120,16 @@ class Profile extends Component {
     return (
       <Paper className={classes.root} elevation={4}>
         <Typography type="title" className={classes.title}>
-          Profile
+        {this.state.user.name}
         </Typography>
         <List dense>
           <ListItem>
             <ListItemAvatar>
               <Avatar src={photoUrl} className={classes.bigAvatar}/>
             </ListItemAvatar>
-            <ListItemText primary={this.state.user.name} secondary={this.state.user.email}/> {
-             auth.isAuthenticated().user && auth.isAuthenticated().user._id == this.state.user._id
+            <ListItemText primary={this.state.user.name} secondary={this.state.user.email}/> 
+            {
+             auth.isAuthenticated().user._id == this.state.user._id
              ? (<ListItemSecondaryAction>
                   <Link to={"/user/edit/" + this.state.user._id}>
                     <IconButton aria-label="Edit" color="primary">

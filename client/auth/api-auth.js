@@ -24,4 +24,4 @@ const signout = () => {
 export {
   signin,
   signout
-}
+};

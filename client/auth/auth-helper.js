@@ -1,8 +1,8 @@
-import { signout } from './api-auth.js'
+import { signout } from './api-auth.js';
 
 const auth = {
   isAuthenticated() {
-    if (typeof window == "undefined")
+    if (typeof window === "undefined")
       return false
 
     if (sessionStorage.getItem('jwt'))
@@ -13,11 +13,11 @@ const auth = {
   authenticate(jwt, cb) {
     if (typeof window !== "undefined")
       sessionStorage.setItem('jwt', JSON.stringify(jwt))
-    cb()
+    cb();
   },
   signout(cb) {
     if (typeof window !== "undefined")
-      sessionStorage.removeItem('jwt')
+      sessionStorage.removeItem('jwt');
     cb()
     //optional
     signout().then((data) => {
@@ -26,4 +26,4 @@ const auth = {
   }
 }
 
-export default auth
+export default auth;
